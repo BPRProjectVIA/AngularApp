@@ -1,13 +1,12 @@
-# base image
-FROM node:latest as build-step
+# stage 1
 
+FROM node:alpine AS my-app-build
 WORKDIR /app
-COPY package.json ./
-RUN npm install 
 COPY . .
-RUN npm run build 
+RUN npm ci && npm run build
 
-FROM node:latest as prod-stage 
-COPY --from=build-step ./dist/angularapp /usr/share/nginx/html
-EXPOSE 80 
-CMD ["nginx", "-g", "daemon off;"]
+# stage 2
+
+FROM nginx:alpine
+COPY --from=my-app-build /app/dist/AngularApp /usr/share/nginx/html
+EXPOSE 80
