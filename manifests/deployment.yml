@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "akcluster-2bed"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "akcluster-2bed"
+  template:
+    metadata:
+      labels:
+        app: "akcluster-2bed"
+    spec:
+      containers:
+        - name: "akcluster-2bed"
+          image: "akangular.azurecr.io/akcluster"
+          ports:
+          - containerPort: 80
