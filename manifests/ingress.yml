@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "akcluster-2bed"
+    labels:
+        app: "akcluster-2bed"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: akcluster90e5-akcluster-2bed.eeacaf4615074409be61.westeurope.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "akcluster-2bed"
+                servicePort: 80
