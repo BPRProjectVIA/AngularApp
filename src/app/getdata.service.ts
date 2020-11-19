@@ -10,8 +10,8 @@ export class GetdataService {
 
   public API = 'https://localhost:32770/WeatherForecast/variables';
 
-  getData(): Observable<string[]> {
-    return this.http.get<string[]>(this.API)
+  getData(): Observable<string> {
+    return this.http.get<string>(this.API)
   }
 
 }

@@ -17,8 +17,6 @@ export class VariablesComponent implements OnInit {
   }
 
   public getData(): void {
-    this.getDataService.getData().subscribe(x => 
-      this.data = x?.toString())
-  }
+    this.getDataService.getData().subscribe(x => this.data = x)}
 
 }
