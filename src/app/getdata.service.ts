@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class GetdataService {
   constructor( private http: HttpClient ) { }
 
-  public API = 'https://localhost:32780/WeatherForecast/variables';
+  public API = 'https://localhost:32768/WeatherForecast/variables';
 
   getData(): Observable<string> {
     return this.http.get<string>(this.API)
