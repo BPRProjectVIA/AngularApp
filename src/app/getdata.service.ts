@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ValuesModel } from './Models/ValuesModel';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetdataService {
-  constructor( private http: HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
-  public API = 'https://localhost:32768/WeatherForecast/variables';
+  public API = 'https://localhost:32768/Values';
 
-  getData(): Observable<string> {
-    return this.http.get<string>(this.API)
+  getData(id: number): Observable<ValuesModel> {
+    return this.http.get<ValuesModel>(`${this.API}/${id}`);
   }
 
 }
