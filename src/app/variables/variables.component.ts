@@ -18,7 +18,7 @@ export class VariablesComponent implements OnInit {
   }
 
   public getData(): void {
-    this.getDataService.getData(1).subscribe(x => 
+    this.getDataService.getData(2).subscribe(x => 
       this.valuesModel = {
         dateTime: x.dateTime,
         microcontrollerID: x.microcontrollerID,
