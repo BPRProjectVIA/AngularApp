@@ -10,7 +10,7 @@ import { ValuesModel } from './Models/ValuesModel';
 export class GetdataService {
   constructor(private http: HttpClient) { }
 
-  public API = 'https://localhost:32768/Values';
+  public API = 'https://localhost:44313/Values';
 
   getData(id: number): Observable<ValuesModel> {
     return this.http.get<ValuesModel>(`${this.API}/${id}`);
